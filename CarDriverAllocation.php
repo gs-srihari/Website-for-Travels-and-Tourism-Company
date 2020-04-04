@@ -1,0 +1,82 @@
+<?php
+$f2=fopen("car.csv","r");
+$f3=fopen("car1.csv","w");
+while(($data1=fgetcsv($f2,1000,","))!=FALSE)
+  {
+   $data1[4]=0;
+fputcsv($f3,$data1);
+  } 
+fclose($f2);
+fclose($f3);
+$f2=fopen("car.csv","w");
+$f3=fopen("car1.csv","r");
+while(($data1=fgetcsv($f3,1000,","))!=FALSE)
+  {
+  // $data1[4]=0;
+fputcsv($f2,$data1);
+  } 
+fclose($f2);
+fclose($f3);
+$f=fopen("driver.csv","r");
+$f1=fopen("drcar.csv","w");
+while(($data=fgetcsv($f,1000,","))!=FALSE)
+{  
+  $a=$data[0];
+  $b=$data[4];
+  echo $b;
+  $f2=fopen("car.csv","r");
+  $i=0;
+while(($data1=fgetcsv($f2,1000,","))!=FALSE)
+  {
+   if(($data[4]==$data1[1])&&($data1[4]<$data1[3]))
+   {
+	   break;
+   }
+   $i++;
+  }
+  //echo $i;
+fclose($f2);
+  $f2=fopen("car.csv","r");
+  $f3=fopen("car1.csv","w");
+  $i1=0;
+while(($data1=fgetcsv($f2,1000,","))!=FALSE)
+  {
+   if($i1==$i)
+   {
+    $data1[4]=$data1[4]+1;
+   }
+fputcsv($f3,$data1);
+   $i1++;
+  } 
+fclose($f2);
+fclose($f3);
+  $f2=fopen("car.csv","w");
+  $f3=fopen("car1.csv","r");
+while(($data1=fgetcsv($f3,1000,","))!=FALSE)
+  {
+fputcsv($f2,$data1);
+  } 
+fclose($f2);
+fclose($f3);
+  $f2=fopen("car.csv","r");
+  $i1=0; 
+while(($data1=fgetcsv($f2,1000,","))!=FALSE)
+  {
+   if($i1==$i)
+   {
+    $list=array($data[0],$data1[0],$data1[1]);
+	echo $data[0]." ".$data1[0]." ".$data[0]."<br>";
+	fputcsv($f1,$list);
+	break;
+   }
+   $i1++;
+  }
+fclose($f2);
+}
+fclose($f1);
+fclose($f);
+echo "Driver  allocated Successful";
+echo "<script type=\"text/javascript\">
+window.location.href='exec1.php';
+</script>";
+?>
