@@ -1,0 +1,68 @@
+<html>
+<?php
+//echo "Hi";
+echo "<h1 style='background-color:green;'><p><a href='home.html'>Home</a><a href='book1.html'>Book Tour</a><a href='cancel1.php'>Cancel Tour</a><a href ='service.html'>Our Services</a><a href='service.html'>Contact Details</a><a href ='ohome.html'>Logout</a></h1>";
+$a1=$_POST["a"];
+$f=fopen("bookings.csv","r");
+$kj=11;
+while($k=fgetcsv($f,1000,","))
+{
+if($k[$kj]==$a1)
+ break;
+}
+fclose($f);
+$f1=fopen("dcdate.csv","r");
+while($k1=fgetcsv($f1,1000,","))
+{
+if($k[7]==$k1[0])
+ {
+while($k[13]<=$k[12])
+  {
+   $k1[$k[13]]='FALSE';
+   $k[13]+=1;
+  }
+  break;
+ }
+}
+fclose($f1);
+$f2=fopen("bookings.csv","r");
+$f3=fopen("book1.csv","w");
+while($k2=fgetcsv($f2,1000,","))
+{
+if($k2[11]!=$a1)
+fputcsv($f3,$k2);
+}
+fclose($f2);
+fclose($f3);
+$f4=fopen("bookings.csv","w");
+$f5=fopen("book1.csv","r");
+while($k3=fgetcsv($f5,1000,","))
+{
+fputcsv($f4,$k3);
+}
+fclose($f4);
+fclose($f5);
+$f6=fopen("dcdate.csv","r");
+$f7=fopen("dd1.csv","w");
+while($k4=fgetcsv($f6,1000,","))
+{
+if($k[7]==$k4[0])
+fputcsv($f7,$k1);
+ else
+fputcsv($f7,$k4);
+}
+fclose($f6);
+fclose($f7);
+$f8=fopen("dd1.csv","r");
+$f9=fopen("dcdate.csv","w");
+while($k5=fgetcsv($f8,1000,","))
+{
+fputcsv($f9,$k5);
+}
+fclose($f8);
+fclose($f9);
+echo "Tour Successfully cancelled";
+?>
+<body style="background-image:url('gbimg3.jpg'); color:white;">
+</body>
+</html>
