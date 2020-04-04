@@ -1,0 +1,43 @@
+<html>
+<head>
+<script>
+var flag=1;
+function isitnull(a)
+{
+if((a==null)||(a==" ")||(a==""))
+ {
+  flag=0;
+ }
+}   
+function abc()
+{
+ a1=document.f1.name.value
+isitnull(a1);
+ a2=document.f1.seats.value;
+isitnull(a2);
+ a3=document.f1.rpd.value;
+isitnull(a3);
+ a5=document.f1.num.value;
+isitnull(a5);
+ if(flag==0)
+ {
+alert("Enter all fields");
+  return false; 
+ }
+ if(flag==1)
+ {
+  return true;
+ }
+}
+</script>
+</head>
+<body style="background-image:url('gbimg3.jpg'); color:white;">
+<form method="POST" onsubmit="return abc()" name="f1" action="car_entered.php">
+<p>Name        :</p><input type="text" name="name"><br>
+<p>Seats    :</p><input type="text" name="seats"><br>
+<p>Rate per day         :</p><input type="text" name="rpd"><br>
+<p>Total Number of Cars:</p><input type="text" name="num"><br>
+<p></p><input type="submit" value="Submit">
+</form>
+</body>
+</html>
