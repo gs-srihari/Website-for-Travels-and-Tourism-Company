@@ -1,0 +1,46 @@
+<html>
+<head>
+<script>
+var flag=1;
+function isitnull(a)
+{
+if((a==null)||(a==" ")||(a==""))
+ {
+  flag=0;
+ }
+}   
+function abc()
+{
+  a4=document.f1.email.value;
+isitnull(a4);
+  a1=document.f1.username.value
+isitnull(a1);
+ a2=document.f1.phone.value;
+isitnull(a2);
+ a3=document.f1.address.value;
+isitnull(a3);
+ a5=document.f1.num.value;
+isitnull(a5);
+ if(flag==0)
+ {
+alert("Enter all fields");
+  return false; 
+ }
+ if(flag==1)
+ {
+  return true;
+ }
+}
+</script>
+</head>
+<body style="background-image:url('gbimg3.jpg'); color:white;">
+<form method="POST" onsubmit="return abc()" name="f1" action="driver_entered.php">
+<p>Name        :</p><input type="text" name="username"><br>
+<p>Phone Number    :</p><input type="text" name="phone"><br>
+<p>Address         :</p><input type="text" name="address"><br>
+<p>Email           :</p><input type="text" name="email"><br>
+<p>Can Drive(in no of passengers):</p><input type="text" name="num"><br>
+<p></p><input type="submit" value="Submit">
+</form>
+</body>
+</html>
