@@ -1,0 +1,54 @@
+<html>
+<head>
+<script>
+var flag=1;
+function isitnull(a)
+{
+if((a==null)||(a==" ")||(a==""))
+ {
+  flag=0;
+ }
+}   
+function abc()
+{
+ a1=document.f1.a.value;
+isitnull(a1);
+ a2=document.f1.b.value;
+isitnull(a2);
+ a3=document.f1.c.value;
+isitnull(a3);
+ a4=document.f1.d.value;
+isitnull(a4);
+ a5=document.f1.e.value;
+isitnull(a5);
+ a6=document.f1.f.value;
+isitnull(a6);
+ a7=document.f1.g.value;
+isitnull(a7);
+ if(flag==0)
+ {
+alert("Enter all fields");
+  return false; 
+ }
+ if(flag==1)
+ {
+  return true;
+ }
+}
+</script>
+</head>
+<body style="background-image:url('gbimg3.jpg'); color:white;">
+<h1 style="background-color:green;"><p><a href="home.html">Home</a><a href="book1.html">Book Tour</a><a href="cancel1.php">Cancel Tour</a><a href ="service.html">Our Services</a><a href ="service.html">Contact Details</a><a href ='ohome.html'>Logout</a></h1>
+<form method="POST" onsubmit="return abc()" name="f1" action="book.php">
+<p>Fill the following form for booking a tour<br></p>
+<p>Name        :</p><input type="text" name="a"><br>
+<p>Destination/Place to travel  :</p><input type="text" name="b"><br>
+<p>Phone Number   :</p><input type="text" name="c"><br>
+<p>Address :</p><input type="text" name="d"><br>
+<p>No of members to travel</p><input type="text" name="e"><br>
+<p>Date(From):</p><input type="date" name="f"><br>
+<p>Date(To):</p><input type="date" name="g"><br>
+<p></p><input type="submit" value="Submit">
+</form>
+</body>
+</html>
